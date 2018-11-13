@@ -19,10 +19,11 @@
 
 using System;
 using System.Diagnostics;
-using System.Drawing;
 using System.IO;
 using System.Net.Http;
 using System.Threading.Tasks;
+// using SixLabors.ImageSharp;
+// using System.Drawing;
 
 namespace Strava.Http
 {
@@ -36,8 +37,9 @@ namespace Strava.Http
         /// </summary>
         /// <param name="uri">The url of the image.</param>
         /// <returns>The downloaded image.</returns>
-        public async static Task<Image> LoadImage(Uri uri)
+        public async static Task<Object> LoadImage(Uri uri)
         {
+            /*
             if (uri == null)
             {
                 throw new ArgumentException("The uri object must not be null.");
@@ -47,14 +49,14 @@ namespace Strava.Http
             {
                 HttpClient client = new HttpClient();
                 Stream stream = await client.GetStreamAsync(uri);
-                Image image = new Bitmap(stream);
+                System.Drawing.Image image = new Bitmap(stream);
                 return image;
             }
             catch (Exception ex)
             {
                 Debug.WriteLine("Couldn't load the image: {0}", ex.Message);
             }
-
+            */
             return null;
         }
     }

@@ -19,7 +19,8 @@
 
 using System;
 using System.Collections.Generic;
-using System.Drawing;
+// using SixLabors.ImageSharp;
+// using System.Drawing;
 using System.Linq;
 using System.Threading.Tasks;
 using Strava.Common;
@@ -40,8 +41,9 @@ namespace Strava.Utilities
         /// <param name="dimension">The dimension of the picture which will be returned.</param>
         /// <param name="mapType">Choose the map type of the image.</param>
         /// <returns>An image of your activity on the specified map.</returns>
-        public static async Task<Image> LoadActivityPreviewAsync(string polyline, Dimension dimension, MapType mapType)
+        public static async Task<Object> LoadActivityPreviewAsync(string polyline, Dimension dimension, MapType mapType)
         {
+            /*
             if (dimension.Width == 0 || dimension.Height == 0)
             {
                 throw new ArgumentException("Both width and height must be greater than zero.");
@@ -61,6 +63,8 @@ namespace Strava.Utilities
 
             Image image = await ImageLoader.LoadImage(new Uri(url));
             return image;
+            */
+            return null;
         }
     }
 }
