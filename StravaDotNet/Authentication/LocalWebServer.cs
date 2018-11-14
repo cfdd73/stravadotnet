@@ -23,6 +23,7 @@ using System.IO;
 using System.Net;
 using System.Text;
 using System.Threading;
+using System.Threading.Tasks;
 using Strava.Common;
 
 namespace Strava.Authentication
@@ -73,7 +74,11 @@ namespace Strava.Authentication
         {
             _httpListener.Start();
 
-            new Thread(ProcessRequest).Start();
+            // new Thread(ProcessRequest).Start();
+            Task.Factory.StartNew(async () =>
+            {
+                while (true) await ProcessRequest();
+            }, TaskCreationOptions.LongRunning);
         }
 
         /// <summary>
@@ -87,7 +92,7 @@ namespace Strava.Authentication
         /// <summary>
         /// Processes a request.
         /// </summary>
-        public async void ProcessRequest()
+        public async Task ProcessRequest()
         {
             _context = _httpListener.GetContext();
             NameValueCollection queries = _context.Request.QueryString;
