@@ -103,7 +103,9 @@ namespace Strava.Authentication
                     break;
             }
 
-            OpenBrowser($"{url}?client_id={clientId}&response_type=code&redirect_uri=http://localhost:{callbackPort}&scope={scopeLevel}&approval_prompt=auto");
+            string urlqs=$"{url}?client_id={clientId}&response_type=code&redirect_uri=http://localhost:{callbackPort}&scope={scopeLevel}&approval_prompt=auto";
+            Console.WriteLine($"SendPostAsync {urlqs}");
+            OpenBrowser(urlqs);
             // Process process = new Process();
             // process.StartInfo = new ProcessStartInfo(string.Format("{0}?client_id={1}&response_type=code&redirect_uri=http://localhost:{2}&scope={3}&approval_prompt=auto", url, clientId, callbackPort, scopeLevel));
             // process.Start();
