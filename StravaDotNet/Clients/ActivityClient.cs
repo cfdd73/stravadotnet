@@ -285,7 +285,7 @@ namespace Strava.Clients
         /// <returns>A list of activities.</returns>
         public async Task<List<ActivitySummary>> GetActivitiesAsync(int page, int perPage)
         {
-            string getUrl = string.Format("{0}?page={1}&per_page={2}&access_token={3}", Endpoints.Activities, page, perPage, Authentication.AccessToken);
+            string getUrl = $"{Endpoints.Activities}?page={page}&per_page={perPage}&access_token={Authentication.AccessToken}";
             string json = await Http.WebRequest.SendGetAsync(new Uri(getUrl));
 
             return Unmarshaller<List<ActivitySummary>>.Unmarshal(json);
