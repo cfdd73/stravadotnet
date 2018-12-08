@@ -51,6 +51,7 @@ namespace Strava.Activities
         /// <summary>
         /// The type of the activity.
         /// </summary>
+        [JsonIgnore]
         public ActivityType Type
         {
             get { return (ActivityType) Enum.Parse(typeof (ActivityType), _type); }
